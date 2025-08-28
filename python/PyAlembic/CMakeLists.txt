@@ -64,7 +64,7 @@ ELSE()
     MESSAGE(FATAL_ERROR "Boost not found.")
 ENDIF()
 
-INCLUDE_DIRECTORIES(${PYTHON_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS} ${ALEMBIC_PYILMBASE_INCLUDE_DIRECTORY})
+INCLUDE_DIRECTORIES(${PYTHON_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 
 # lots of warnings coming from unused local typedefs inside boost python
 IF (NOT WINDOWS)
@@ -160,7 +160,8 @@ TARGET_LINK_LIBRARIES(alembic
     Alembic::Alembic
     ${PYTHON_LIBRARIES}
     ${Boost_LIBRARIES}
-    ${ALEMBIC_PYILMBASE_PYIMATH_LIB}
+    Imath::Imath
+    Imath::PyImath
 )
 
 SET( ALEMBIC_PYTHON_INSTALL_DIR
